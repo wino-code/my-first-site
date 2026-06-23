@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAZIMPAKA Jean Baptiste — Vibe Coding Learner</title>
+
+  <!-- Tailwind CSS via CDN: one line, all of Tailwind loaded -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- A tiny bit of CSS for smooth scroll (Tailwind doesn't have a class for this) -->
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<!-- bg-[#f4f2ee] = LinkedIn's warm off-white. Square brackets let us use any custom color. -->
+<!-- text-gray-900 = nearly black text. font-sans = system sans-serif font. -->
+<body class="bg-[#f4f2ee] text-gray-900 font-sans">
+
+  <!-- ========== NAV BAR ========== -->
+  <!-- fixed = sticks in place when scrolling | top-0 left-0 right-0 = pinned to top, full width -->
+  <!-- backdrop-blur-md = blurs whatever is behind it (the "frosted glass" nav effect) -->
+  <!-- z-50 = stacks above other elements -->
+  <nav class="fixed top-0 left-0 right-0 bg-blue-600/80 backdrop-blur-md border-b border-gray-200 z-50">
+    <!-- max-w-3xl mx-auto = max width 768px, centered horizontally -->
+    <!-- flex items-center justify-between = arrange children in a row, vertically centered, with space between -->
+    <div class="max-w-3xl mx-auto px-8 py-4 flex items-center justify-between">
+      <div class="font-bold tracking-tight">MJB.</div>
+      <ul class="flex gap-6 text-sm font-medium text-gray-600">
+        <li><a href="#about" class="hover:text-blue-600 transition">About</a></li>
+        <li><a href="#learning" class="hover:text-blue-600 transition">Learning</a></li>
+        <li><a href="#projects" class="hover:text-blue-600 transition">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE WRAPPER ========== -->
+  <!-- max-w-3xl mx-auto = centered, max width 768px | pt-24 = padding-top of 6rem to clear fixed nav -->
+  <div class="max-w-3xl mx-auto px-6 pt-24 pb-12 space-y-4">
+
+    <!-- ========== HERO ========== -->
+    <!-- bg-white rounded-xl = white card with rounded corners | shadow-sm = subtle drop shadow -->
+    <!-- overflow-hidden = clips the blue banner so it respects the rounded corners -->
+    <section class="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+      <!-- Blue cover banner (LinkedIn style) -->
+      <!-- h-28 = height of 7rem | bg-gradient-to-br = gradient flowing bottom-right -->
+      <div class="h-28 bg-gradient-to-br from-blue-600 to-blue-400"></div>
+
+      <div class="px-8 pb-8">
+        <!-- Avatar overlapping the banner -->
+        <!-- -mt-12 = pulls element up 3rem so it overlaps the banner | ring-4 = 4px border ring -->
+        <div class="w-24 h-24 -mt-12 rounded-full ring-4 ring-white bg-gradient-to-br from-gray-800 to-gray-500 flex items-center justify-center text-white text-2xl font-semibold mb-4">
+          MJB
+        </div>
+
+        <h1 class="text-3xl font-semibold tracking-tight">MAZIMPAKA Jean Baptiste</h1>
+        <p class="text-gray-600 mt-1">Vibe coding learner · Rwanda 🇷🇼</p>
+
+        <!-- APPLE-STYLE GLASS BUTTON -->
+        <!-- bg-blue-600/85 = blue at 85% opacity | backdrop-blur-xl = strong blur behind | shadow-lg = bigger shadow -->
+        <!-- hover:-translate-y-0.5 = lifts up 2px on hover (subtle pro effect) -->
+        <a href="#contact"
+           class="inline-block mt-6 px-6 py-2.5 rounded-full bg-blue-600/85 backdrop-blur-xl text-white text-sm font-medium shadow-lg shadow-blue-600/30 border border-white/20 hover:bg-blue-600 hover:-translate-y-0.5 transition-all">
+          Get in touch
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="bg-white rounded-xl border border-gray-200 shadow-sm p-8">
+      <div class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">About</div>
+      <h2 class="text-xl font-semibold mb-4">Who I am</h2>
+      <p class="text-gray-700 leading-relaxed">
+        I'm a Rwandan guy on a journey to learn professional vibe coding —
+        building real apps and websites by directing AI with intention.
+        I'm documenting every step of the way.
+      </p>
+    </section>
+
+    <!-- ========== LEARNING ========== -->
+    <section id="learning" class="bg-white rounded-xl border border-gray-200 shadow-sm p-8">
+      <div class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Currently</div>
+      <h2 class="text-xl font-semibold mb-4">What I'm learning</h2>
+
+      <!-- divide-y = automatic horizontal lines between children | divide-gray-100 = light gray dividers -->
+      <ul class="divide-y divide-gray-100">
+        <li class="py-3 flex gap-4">
+          <span class="text-blue-600 font-bold text-sm w-6">01</span>
+          <span class="text-gray-800">The tools used in vibe coding (VS Code, Node, Git, Claude)</span>
+        </li>
+        <li class="py-3 flex gap-4">
+          <span class="text-blue-600 font-bold text-sm w-6">02</span>
+          <span class="text-gray-800">The difference between backend and frontend</span>
+        </li>
+        <li class="py-3 flex gap-4">
+          <span class="text-blue-600 font-bold text-sm w-6">03</span>
+          <span class="text-gray-800">How the web actually works (clients, servers, requests, responses)</span>
+        </li>
+        <li class="py-3 flex gap-4">
+          <span class="text-blue-600 font-bold text-sm w-6">04</span>
+          <span class="text-gray-800">The 12 essential HTML tags</span>
+        </li>
+        <li class="py-3 flex gap-4">
+          <span class="text-blue-600 font-bold text-sm w-6">05</span>
+          <span class="text-gray-800">How to read & edit code manually</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" class="bg-white rounded-xl border border-gray-200 shadow-sm p-8">
+      <div class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Work</div>
+      <h2 class="text-xl font-semibold mb-4">Projects</h2>
+
+      <!-- grid grid-cols-1 sm:grid-cols-2 = 1 column on phones, 2 columns on tablets+ -->
+      <!-- gap-3 = 0.75rem spacing between cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- group = enables hover effects on children with group-hover: prefix -->
+        <div class="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-blue-600 hover:bg-white hover:-translate-y-0.5 transition-all cursor-pointer group">
+          <h3 class="font-semibold text-gray-900 mb-1">Professional Portfolio</h3>
+          <p class="text-sm text-gray-600">A personal landing page showcasing who I am and what I'm building.</p>
+        </div>
+        <div class="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-blue-600 hover:bg-white hover:-translate-y-0.5 transition-all cursor-pointer group">
+          <h3 class="font-semibold text-gray-900 mb-1">Receipt Template</h3>
+          <p class="text-sm text-gray-600">A clean, printable receipt generator for small businesses.</p>
+        </div>
+        <div class="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-blue-600 hover:bg-white hover:-translate-y-0.5 transition-all cursor-pointer group">
+          <h3 class="font-semibold text-gray-900 mb-1">Expenses Tracker</h3>
+          <p class="text-sm text-gray-600">A simple web app to log and visualize personal spending.</p>
+        </div>
+        <div class="p-5 bg-gray-50 border border-gray-200 rounded-lg hover:border-blue-600 hover:bg-white hover:-translate-y-0.5 transition-all cursor-pointer group">
+          <h3 class="font-semibold text-gray-900 mb-1">Office Attendance System</h3>
+          <p class="text-sm text-gray-600">A simple system which will help owner to see who attended and when.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="bg-white rounded-xl border border-gray-200 shadow-sm p-8">
+      <div class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Contact</div>
+      <h2 class="text-xl font-semibold mb-4">Let's talk</h2>
+      <p class="text-gray-700 mb-4">The fastest way to reach me:</p>
+      <a href="mailto:mazimpakajeanbaptiste@gmail.com"
+         class="text-blue-600 font-medium border-b border-transparent hover:border-blue-600 transition">
+        mazimpakajeanbaptiste@gmail.com
+      </a>
+    </section>
+
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="max-w-3xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
+    © 2026 MAZIMPAKA Jean Baptiste · Built on Day 4 of my vibe coding journey · Powered by Tailwind CSS.
+  </footer>
+
+</body>
+</html>

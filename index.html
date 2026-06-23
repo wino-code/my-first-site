@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAZIMPAKA Jean Baptiste — Vibe Coding Learner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      background: #f4f2ee;       /* LinkedIn's warm off-white */
+      color: #000000;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid #e0dfdc;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: #555;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: #c20a0a; }   /* LinkedIn blue */
+
+    /* ---------- LAYOUT ---------- */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Card-style sections like LinkedIn */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e0dfdc;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      margin-top: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(135deg, #c20a0a, #e93737);
+    }
+
+    .hero-content {
+      position: relative;
+      padding-top: 80px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0a0079, #555);
+      border: 4px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      color: #000;
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------- APPLE-STYLE GLASS BUTTON ---------- */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      color: #000;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+      width: fit-content;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    /* Primary blue version for CTAs */
+    .btn-primary {
+      background: rgba(194, 10, 10, 0.85);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 4px 16px rgba(10, 102, 194, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: rgba(10, 102, 194, 1);
+      box-shadow:
+        0 8px 24px rgba(10, 102, 194, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    /* ---------- SECTION HEADERS ---------- */
+    .section-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    p { color: #444; font-size: 0.95rem; }
+
+    /* ---------- LEARNING LIST ---------- */
+    .learning-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .learning-list li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #ececec;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+h1
+    .learning-list li:last-child { border-bottom: none; }
+
+    .learning-list .num {
+      color: #c70a0a;
+      font-weight: 700;
+      min-width: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .learning-list span:last-child { color: #333; }
+
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      padding: 1.25rem;
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      transition: border-color 0.2s, transform 0.15s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      border-color: #c20a0a;
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: #000;
+    }
+
+    .project-card p { font-size: 1rem; color: #666; }
+
+    /* ---------- CONTACT ---------- */
+    .contact a {
+      display: inline-block;
+      color: #c20a0a;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact a:hover { border-color: #c20a0a; }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 600px) {
+      nav { padding: 0.85rem 1rem; }
+      nav ul { gap: 1rem; }
+      nav ul a { font-size: 0.8rem; }
+      .card { padding: 1.5rem; }
+      .hero h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">M.</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#learning">Learning</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <section class="hero card">
+      <div class="hero-content">
+        <div class="avatar">
+  <img src="https://i.pravatar.cc/150" alt="my photo" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" />
+</div>
+        <h1>MAZIMPAKA Jean Baptiste</h1>
+        <p class="tagline">Vibe coding learner · Rwanda 🇷🇼</p>
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <div class="section-label">About</div>
+      <h2>Who I am</h2>
+      <p>
+        I'm a Rwandan guy on a journey to learn professional vibe coding —
+        building real apps and websites by directing AI with intention.
+        I'm documenting every step of the way.
+      </p>
+    </section>
+
+    <!-- LEARNING -->
+    <section id="learning" class="card">
+      <div class="section-label">Currently</div>
+      <h2>What I'm learning</h2>
+      <ul class="learning-list">
+        <li>
+          <span class="num">01</span>
+          <span>The tools used in vibe coding (VS Code, Node, Git, Claude)</span>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <span>The difference between backend and frontend</span>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <span>How the web actually works (clients, servers, requests, responses)</span>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <span>The 12 essential html tags</span>
+        </li>
+        <li>
+          <span class="num">05</span>
+          <span>How to read&edit code manually</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card">
+      <div class="section-label">Work</div>
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Professional Portfolio</h3>
+          <p>A personal landing page showcasing who I am and what I'm building.</p>
+        </div>
+        <div class="project-card">
+          <h3>Receipt Template</h3>
+          <p>A clean, printable receipt generator for small businesses.</p>
+        </div>
+        <div class="project-card">
+          <h3>Expenses Tracker</h3>
+          <p>A simple web app to log and visualize personal spending.</p>
+        </div>
+        <div class="project-card">
+          <h3>Office Attendance System</h3>
+          <p>A simple system which will help owner to see who attended and when.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card contact">
+      <div class="section-label">Contact</div>
+      <h2>Let's talk</h2>
+      <p style="margin-bottom: 1.25rem;">The fastest way to reach me:</p>
+      <a href="mailto:mazimpakajeanbaptiste@gmail.com">mazimpakajeanbaptiste@gmail.com</a>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2026 MAZIMPAKA Jean Baptiste · Built on Day 2 of my vibe coding journey.
+  </footer>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        const section = document.querySelector(targetId);
+        if (section) {
+          section.style.transition = 'opacity 0.4s';
+          section.style.opacity = '0.4';
+          setTimeout(() => { section.style.opacity = '1'; }, 400);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
